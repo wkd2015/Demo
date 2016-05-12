@@ -1,0 +1,30 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.center{
+    position: absolute;
+    width: 400px;
+    height: 200px;
+    background-color: darkgrey;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -200px;
+}
+.leftAndTop{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 0 0 50px 0;
+    background-color: cornflowerblue;
+}
+.rightAndBottom{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    border-radius: 50px 0 0 0;
+    background-color: cornflowerblue;
+    bottom: 0;
+    right: 0;
+}
