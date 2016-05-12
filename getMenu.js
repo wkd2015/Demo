@@ -4,7 +4,8 @@
 //于数组中添加项目目录，格式为   ['URL', '名称']
 var arr  = [
     ['单页面制作',
-        ['demos/pages/ife/task0102.html','HTML+CSS简单页面']
+        ['demos/pages/ife/task0102.html','HTML+CSS简单页面'],
+        ['demos/pages/ife/task0103.html','三栏式布局（左右固定中间自适应）']
     ],
     ['网页小插件'
 
