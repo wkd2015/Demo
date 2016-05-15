@@ -8,8 +8,8 @@ var arr  = [
         ['demos/pages/ife/task0103.html','三栏式布局（左右固定中间自适应）'],
         ['demos/pages/ife/task0104.html','居中与定位']
     ],
-    ['网页小插件'
-
+    ['网页小插件',
+        ['demos/pages/ife/task0201.html','简单事件绑定']
     ]
 ];
 var list = "";
