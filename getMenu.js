@@ -7,7 +7,8 @@ var arr  = [
         ['demos/pages/ife/task0102.html','HTML+CSS简单页面'],
         ['demos/pages/ife/task0103.html','三栏式布局（左右固定中间自适应）'],
         ['demos/pages/ife/task0104.html','居中与定位'],
-        ['demos/pages/ife/task0105.html','简单页面+侧边栏']
+        ['demos/pages/ife/task0105.html','简单页面+侧边栏'],
+        ['demos/pages/freeCodeCamp/tributePage.html','简介页面']
     ],
     ['网页小插件',
         ['demos/pages/ife/task0201.html','简单事件绑定']
