@@ -8,7 +8,9 @@ var arr  = [
         ['demos/pages/ife/task0103.html','三栏式布局（左右固定中间自适应）'],
         ['demos/pages/ife/task0104.html','居中与定位'],
         ['demos/pages/ife/task0105.html','简单页面+侧边栏'],
-        ['demos/pages/freeCodeCamp/tributePage.html','简介页面']
+        ['demos/pages/freeCodeCamp/tributePage.html','简介页面'],
+        ['demos/pages/ife/task0108.html','栅格化布局'],
+        ['demos/pages/study/boxsizingTest.html','box-sizing属性demo']
     ],
     ['网页小插件',
         ['demos/pages/ife/task0201.html','简单事件绑定']
