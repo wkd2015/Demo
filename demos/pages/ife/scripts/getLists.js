@@ -2,6 +2,7 @@
  * Created by wangkaidong on 16/7/18.
  */
 window.onload = function () {
+
     var arr = [
         ['../ife/task0102.html', '任务二:零基础HTML及CSS编码(一)', 'http://ife.baidu.com/task/detail?taskId=2'],
         ['../ife/task0103.html', '任务三:三栏式布局', 'http://ife.baidu.com/task/detail?taskId=3'],
