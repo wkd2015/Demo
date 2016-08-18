@@ -12,7 +12,7 @@ window.onload = function () {
         ['../ife/task0201.html', '任务十三：零基础JavaScript编码(一)', 'http://ife.baidu.com/task/detail?taskId=13'],
         ['../ife/task14.html', '任务十四：零基础JavaScript编码(二)', 'http://ife.baidu.com/task/detail?taskId=14'],
         ['../ife/task15.html', '任务十五：零基础JavaScript编码(三)', 'http://ife.baidu.com/task/detail?taskId=15'],
-        ['../ife/task16.html', '任务十六：零基础JavaScript编码(四)', 'http://ife.baidu.com/task/detail?taskId=16'],
+        ['../ife/task16.html', '任务十六：零基础JavaScript编码(666四)', 'http://ife.baidu.com/task/detail?taskId=16'],
         ['../ife/task18.html', '任务十八：基础JavaScript练习(一)', 'http://ife.baidu.com/task/detail?taskId=18']
     ];
     var lists = "";
