@@ -13,7 +13,8 @@ var arr  = [
         ['demos/pages/freeCodeCamp/tributePage.html','简介页面']
     ],
     ['实践验证Demo',
-        ['demos/pages/study/boxsizingTest.html','box-sizing属性demo']
+        ['demos/pages/study/boxsizingTest.html','box-sizing属性demo'],
+        ['demos/pages/study/zhezhaoPic.html','图片圆形遮罩及动态效果']
     ]
 ];
 var list = "";

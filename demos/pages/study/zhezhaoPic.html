@@ -1,0 +1,54 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>圆形遮罩</title>
+    <style type="text/css">
+        .cover {
+            width: 300px;
+            height: 300px;
+            border: 512px solid rgba(0, 0, 0, .35);
+            border-radius: 50%;
+            position: absolute;
+            left: -512px;
+            top: -512px;
+            transition: 2s ease;
+        }
+
+        .outer {
+            display: block;
+            width: 300px;
+            height: 300px;
+            margin: 1em auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cover:hover {
+            width: 500px;
+            height: 500px;
+            left: -612px;
+            top: -612px;
+        }
+        ul{
+            width: 300px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<div class="demo">
+    <a href="#" class="outer">
+        <div class="cover"></div>
+        <img src="img/50650833_p0.jpg" style="width: 300px">
+    </a>
+</div>
+<ul>
+    <li>要点
+        <ul>
+            <li>transition</li>
+            <li>position及负值定位</li>
+        </ul>
+    </li>
+</ul>
+</body>
+</html>
