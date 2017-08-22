@@ -1,0 +1,159 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: darkgray;
+}
+.header{
+    height: 60px;
+    background-color: dodgerblue;
+    position: relative;
+}
+.header a{
+    line-height: 58px;
+    color: white;
+    text-decoration: none;
+}
+.header a h1{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.header a img{
+    height: 58px;
+    float: left;
+    padding-left: 20px;
+}
+.header a h1{
+    font-size: 40px;
+    margin-left: 10px;
+    display: inline-block;
+}
+.header .nav{
+    height: 60px;
+    float: right;
+    padding-right: 10px;
+}
+.header .nav ul{
+    margin: 0;
+    position: absolute;
+    top: 0;
+    right: 10px;
+}
+.header .nav ul li{
+    margin-left: 10px;
+    display: inline-block;
+    width: 80px;
+    height: 60px;
+    text-align: center;
+}
+.header .nav ul li a{
+    font-size: 12px;
+}
+.header a{
+    color: white;
+    line-height: 60px;
+}
+.header .nav li:hover{
+    background-color: cornflowerblue;
+    /*border-bottom: blue 1px;*/
+}
+.mainContent{
+    margin-top: 20px;
+    min-width: 800px;
+    margin-right: 470px;
+}
+.paragraph{
+    box-shadow: 3px 3px 3px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    width: 95%;
+    border: solid 1px black;
+    background-color: #e9ebec;
+}
+.paragraph h2{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.paragraph h3{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.paragraph img{
+    width: 160px;
+    height: 160px;
+    padding: 20px;
+}
+.paragraph .photos{
+    margin: 10px;
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    border: solid 1px dimgray;
+}
+.paragraph .photos span{
+    display: block;
+    text-align: center;
+    margin: 5px;
+}
+.photos img{
+    width: 160px;
+    padding: 0 20px 20px 20px;
+}
+.sideBar{
+    padding: 20px;
+    width: 400px;
+    position: fixed;
+    right: 20px;
+    top: 80px;
+    border: solid 1px black;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px;
+    background-color: #e9ebec;
+}
+.sideBar h4{
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 10px;
+    border-left: 3px dimgray solid;
+}
+.sideBar .tips{
+    text-align: right;
+    float: left;
+    width: 35%;
+    padding-right: 15px;
+}
+.sideBar p{
+    font-size: 12px;
+    color: lightgrey;
+    margin-left: 40%;
+    margin-top: 0;
+}
+.sideBar textarea{
+    width: 50%;
+    height: 100px;
+}
+.submitButton{
+    width: 100%;
+    border-radius: 6px;
+    background-color: #128fdc;
+    color: white;
+    height: 40px;
+}
+table{
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+}
+th{
+    background-color: cadetblue;
+    color: white;
+}
+td{
+    border: 1px solid grey;
+}
+.bottomtable{
+    background-color: dimgrey;
+}

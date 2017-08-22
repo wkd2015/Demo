@@ -1,0 +1,56 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.mainContent{
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px;
+    margin: 20px;
+    padding: 20px;
+    min-width: 600px;
+    border: 1px solid dimgrey;
+    overflow: auto;
+    background-color: lightgrey;
+}
+.left{
+    border-radius: 5px;
+    width: 160px;
+    border: 1px solid dimgrey;
+    float: left;
+    padding: 20px;
+    background-color: white;
+}
+.left h2{
+    float: left;
+    padding-left: 10px;
+}
+.left img{
+    border-radius: 5px;
+    width: 80px;
+    height: 80px;
+    float: left;
+    border: 1px solid black;
+}
+.right{
+    border-radius: 5px;
+    width: 120px;
+    float: right;
+    border: 1px solid dimgrey;
+    background-color: white;
+}
+.right img{
+    border-radius: 5px;
+    width: 80px;
+    height: 80px;
+    display: block;
+    border: 1px solid black;
+    margin: 20px;
+}
+.center{
+    border: 1px solid black;
+    margin-left: 220px;
+    margin-right: 140px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+}
