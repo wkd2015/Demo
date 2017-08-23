@@ -155,7 +155,7 @@ function isWorkday(year, month, day) {
         jsonpCallback: "op_aladdin_callback",
         success: function (response) {
             var curHolidays = [];
-            var inputDate = year + '-' + month + '-' +day;
+            var inputDate = year + '-' + month + '-' + day;
             var isWorkday = true;
             for (var i = 0; i < response.data[0].holiday.length; i++) {
                 for (var j = 0; j < response.data[0].holiday[i].list.length; j++) {
@@ -165,7 +165,7 @@ function isWorkday(year, month, day) {
             for (var i = 0; i < curHolidays.length; i++) {
                 if (curHolidays[i].date == inputDate && curHolidays[i].status == '1') {
                     isWorkday = false;
-                }else if (isWeekend(year,month,day) && curHolidays[i].status != '2') {
+                } else if (isWeekend(year, month, day) && !(curHolidays[i].date == inputDate && curHolidays[i].status == '2')) {
                     isWorkday = false;
                 }
             }
@@ -175,4 +175,83 @@ function isWorkday(year, month, day) {
             console.log('Failed');
         }
     });
+}
+var testDateList = ['2017-8-26', '2017-9-5', '2017-10-11', '2017-8-22', '2017-3-17', '2017-12-3', '2016-8-7', '2016-8-23', '2016-5-5'];
+
+function uniqueArr(arr) {
+    arr.sort();
+    var re = [arr[0]];
+    for (var i = 1; i < arr.length; i++) {
+        if (arr[i] !== re[re.length - 1]) {
+            re.push(arr[i]);
+        }
+    }
+    return re;
+}
+
+var WorkdaysList = [1];
+
+function isWorkdays(datelist) {
+    var curYear = (new Date()).getFullYear(); //当前年份的提交一次查询
+    //需要查询的年月提取
+    var queryList = uniqueArr($.map(datelist, function (value, index) {
+        if (value.indexOf(curYear) != -1) {
+            return curYear + '-5';
+        } else {
+            var yearMon = value.split('-');
+            yearMon = yearMon[0] + '-' + yearMon[1];
+            return yearMon;
+        }
+    }));
+    for (var i = 0; i < queryList.length; i++) {
+        setTimeout((function (i) {
+            var tempYear = queryList[i].split('-')[0];
+            var tempMon = queryList[i].split('-')[1];
+            // alert('pause');
+            $.ajax({
+                type: "get",
+                url: "https://sp0.baidu.com/8aQDcjqpAAV3otqbppnN2DJv/api.php?query=" + encodeURIComponent(tempYear + '年' + tempMon + '月') + "&co=&resource_id=6018&t=" + new Date().getTime() + "&ie=utf8&oe=gbk&cformat=jsonp&tn=baidu&_=1503384260368",
+                dataType: "jsonp",
+                jsonp: "cb",
+                jsonpCallback: "op_aladdin_callback",
+                success: function (response) {
+                    var curHolidays = [];
+                    // var WorkdaysList = [];
+                    for (var i = 0; i < response.data[0].holiday.length; i++) {
+                        for (var j = 0; j < response.data[0].holiday[i].list.length; j++) {
+                            curHolidays.push(response.data[0].holiday[i].list[j]);
+                        }
+                    }
+                    // console.log(WorkdaysList);
+                    WorkdaysList = $.map(datelist, function (value, index) {
+                        for (var j = 0; j < curHolidays.length; j++) {
+                            if (curHolidays[j].date == value && curHolidays[j].status == '1') {
+                                return {
+                                    date: value,
+                                    status: '1' //非工作日
+                                };
+                            } else if (isWeekend(value.split('-')[0], value.split('-')[1], value.split('-')[2]) &&
+                                !(curHolidays[j].date == value && curHolidays[j].status == '2')) {
+                                return {
+                                    date: value,
+                                    status: '1' //非工作日
+                                };
+                            } else {
+                                return {
+                                    date: value,
+                                    status: '2'
+                                };
+                            }
+                        }
+                    });
+                },
+                error: function () {
+                    console.log('Failed');
+                }
+            });
+        })(i), (function (i) {
+            return i * 100
+        })(i));
+
+    }
 }
