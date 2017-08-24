@@ -176,8 +176,8 @@ function isWorkday(year, month, day) {
         }
     });
 }
-var testDateList = ['2017-8-26', '2017-9-5', '2017-10-11', '2017-8-22', '2017-3-17', '2017-12-3', '2016-8-7', '2016-8-23', '2016-5-5'];
-
+var testDateList = ['2017-8-26', '2017-9-5', '2017-10-11', '2017-8-22', '2017-3-17', '2017-12-3', '2016-8-7', '2016-8-23', '2016-5-2'];
+//字符串去重
 function uniqueArr(arr) {
     arr.sort();
     var re = [arr[0]];
@@ -187,6 +187,29 @@ function uniqueArr(arr) {
         }
     }
     return re;
+}
+//数组去重
+//将对象元素转换成字符串以作比较
+function obj2key(obj, keys) {
+    var n = keys.length,
+        key = [];
+    while (n--) {
+        key.push(obj[keys[n]]);
+    }
+    return key.join('|');
+}
+//去重操作
+function uniqeByKeys(array, keys) {
+    var arr = [];
+    var hash = {};
+    for (var i = 0, j = array.length; i < j; i++) {
+        var k = obj2key(array[i], keys);
+        if (!(k in hash)) {
+            hash[k] = true;
+            arr.push(array[i]);
+        }
+    }
+    return arr;
 }
 
 var WorkdaysList = [1];
@@ -203,27 +226,37 @@ function isWorkdays(datelist) {
             return yearMon;
         }
     }));
-    for (var i = 0; i < queryList.length; i++) {
-        setTimeout((function (i) {
-            var tempYear = queryList[i].split('-')[0];
-            var tempMon = queryList[i].split('-')[1];
-            // alert('pause');
-            $.ajax({
-                type: "get",
-                url: "https://sp0.baidu.com/8aQDcjqpAAV3otqbppnN2DJv/api.php?query=" + encodeURIComponent(tempYear + '年' + tempMon + '月') + "&co=&resource_id=6018&t=" + new Date().getTime() + "&ie=utf8&oe=gbk&cformat=jsonp&tn=baidu&_=1503384260368",
-                dataType: "jsonp",
-                jsonp: "cb",
-                jsonpCallback: "op_aladdin_callback",
-                success: function (response) {
-                    var curHolidays = [];
-                    // var WorkdaysList = [];
+    console.log(queryList);
+    // for (var i = 0; i < queryList.length; i++) {
+    // setTimeout((function (i) {
+    function aa(k) {
+        // var i = 0;
+        console.log('————————————————————————————————————————————————————————————————————');
+        console.log(WorkdaysList);
+        console.log(k);
+        var tempYear = queryList[k].split('-')[0];
+        var tempMon = queryList[k].split('-')[1];
+        // alert('pause');
+        $.ajax({
+            type: "get",
+            url: "https://sp0.baidu.com/8aQDcjqpAAV3otqbppnN2DJv/api.php?query=" + encodeURIComponent(tempYear + '年' + tempMon + '月') + "&co=&resource_id=6018&t=" + new Date().getTime() + "&ie=utf8&oe=gbk&cformat=jsonp&tn=baidu&_=1503384260368",
+            dataType: "jsonp",
+            jsonp: "cb",
+            jsonpCallback: "op_aladdin_callback",
+            success: function (response) {
+                console.log(response)
+                var curHolidays = [];
+                var tempList = [];
+                if (k >= queryList.length) {
+                    return
+                } else {
                     for (var i = 0; i < response.data[0].holiday.length; i++) {
                         for (var j = 0; j < response.data[0].holiday[i].list.length; j++) {
                             curHolidays.push(response.data[0].holiday[i].list[j]);
                         }
                     }
-                    // console.log(WorkdaysList);
-                    WorkdaysList = $.map(datelist, function (value, index) {
+                    console.log(curHolidays);
+                    tempList = $.map(datelist, function (value, index) {
                         for (var j = 0; j < curHolidays.length; j++) {
                             if (curHolidays[j].date == value && curHolidays[j].status == '1') {
                                 return {
@@ -244,14 +277,18 @@ function isWorkdays(datelist) {
                             }
                         }
                     });
-                },
-                error: function () {
-                    console.log('Failed');
+                    WorkdaysList = WorkdaysList.concat(tempList);
+                    aa(k + 1);
                 }
-            });
-        })(i), (function (i) {
-            return i * 100
-        })(i));
-
+            },
+            error: function () {
+                console.log('Failed');
+            }
+        });
     }
+    // })(i), (function (i) {
+    //     return i * 100
+    // })(i));
+    aa(0);
+    // }
 }
