@@ -213,6 +213,7 @@ function uniqeByKeys(array, keys) {
 }
 
 var WorkdaysList = [1];
+var curHolidays = [];
 
 function isWorkdays(datelist) {
     var curYear = (new Date()).getFullYear(); //当前年份的提交一次查询
@@ -227,16 +228,13 @@ function isWorkdays(datelist) {
         }
     }));
     console.log(queryList);
-    // for (var i = 0; i < queryList.length; i++) {
-    // setTimeout((function (i) {
     function aa(k) {
         // var i = 0;
-        console.log('————————————————————————————————————————————————————————————————————');
-        console.log(WorkdaysList);
-        console.log(k);
+        //console.log('————————————————————————————————————————————————————————————————————');
+        //console.log(WorkdaysList);
+        //console.log(k);
         var tempYear = queryList[k].split('-')[0];
         var tempMon = queryList[k].split('-')[1];
-        // alert('pause');
         $.ajax({
             type: "get",
             url: "https://sp0.baidu.com/8aQDcjqpAAV3otqbppnN2DJv/api.php?query=" + encodeURIComponent(tempYear + '年' + tempMon + '月') + "&co=&resource_id=6018&t=" + new Date().getTime() + "&ie=utf8&oe=gbk&cformat=jsonp&tn=baidu&_=1503384260368",
@@ -244,9 +242,9 @@ function isWorkdays(datelist) {
             jsonp: "cb",
             jsonpCallback: "op_aladdin_callback",
             success: function (response) {
-                console.log(response)
-                var curHolidays = [];
-                var tempList = [];
+                //console.log(response);
+                //var curHolidays = [];
+                //var tempList = [];
                 if (k >= queryList.length) {
                     return
                 } else {
@@ -256,28 +254,28 @@ function isWorkdays(datelist) {
                         }
                     }
                     console.log(curHolidays);
-                    tempList = $.map(datelist, function (value, index) {
-                        for (var j = 0; j < curHolidays.length; j++) {
-                            if (curHolidays[j].date == value && curHolidays[j].status == '1') {
-                                return {
-                                    date: value,
-                                    status: '1' //非工作日
-                                };
-                            } else if (isWeekend(value.split('-')[0], value.split('-')[1], value.split('-')[2]) &&
-                                !(curHolidays[j].date == value && curHolidays[j].status == '2')) {
-                                return {
-                                    date: value,
-                                    status: '1' //非工作日
-                                };
-                            } else {
-                                return {
-                                    date: value,
-                                    status: '2'
-                                };
-                            }
-                        }
-                    });
-                    WorkdaysList = WorkdaysList.concat(tempList);
+                    //tempList = $.map(datelist, function (value, index) {
+                    //    for (var j = 0; j < curHolidays.length; j++) {
+                    //        if (curHolidays[j].date == value && curHolidays[j].status == '1') {
+                    //            return {
+                    //                date: value,
+                    //                status: '1' //非工作日
+                    //            };
+                    //        } else if (isWeekend(value.split('-')[0], value.split('-')[1], value.split('-')[2]) &&
+                    //            !(curHolidays[j].date == value && curHolidays[j].status == '2')) {
+                    //            return {
+                    //                date: value,
+                    //                status: '1' //非工作日
+                    //            };
+                    //        } else {
+                    //            return {
+                    //                date: value,
+                    //                status: '2'
+                    //            };
+                    //        }
+                    //    }
+                    //});
+                    //WorkdaysList = WorkdaysList.concat(tempList);
                     aa(k + 1);
                 }
             },
@@ -291,4 +289,31 @@ function isWorkdays(datelist) {
     // })(i));
     aa(0);
     // }
+}
+
+function getResult(datelist){ //map循环写法有问题，其中的for循环由于if判断中有return，导致只进行了一次循环就中断遍历，得到错误结果，需要更改
+    var tempList = $.map(datelist, function (value, index) {
+        for (var j = 0; j < curHolidays.length; j++) {
+            console.log(j);
+            console.log(curHolidays[j]);
+            if (curHolidays[j].date == value && curHolidays[j].status == '1') {
+                return {
+                    date: value,
+                    status: '1' //非工作日
+                };
+            } else if (isWeekend(value.split('-')[0], value.split('-')[1], value.split('-')[2]) &&
+                !(curHolidays[j].date == value && curHolidays[j].status == '2')) {
+                return {
+                    date: value,
+                    status: '1' //非工作日
+                };
+            } else {
+                return {
+                    date: value,
+                    status: '2'
+                };
+            }
+        }
+    });
+    return tempList;
 }
