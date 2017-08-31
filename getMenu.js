@@ -14,7 +14,8 @@ var arr  = [
     ],
     ['实践验证Demo',
         ['demos/pages/study/boxsizingTest.html','box-sizing属性demo'],
-        ['demos/pages/study/zhezhaoPic.html','图片圆形遮罩及动态效果']
+        ['demos/pages/study/zhezhaoPic.html','图片圆形遮罩及动态效果'],
+        ['demos/pages/study/isWorkday/index.html','工作日判断']
     ]
 ];
 var list = "";
