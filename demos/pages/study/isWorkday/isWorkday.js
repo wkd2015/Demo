@@ -41,3 +41,10 @@ function isWorkday(datelist) {
     // console.log(result);
     return result;
 }
+
+$(function () {
+    var datelist = [];
+    datelist.push((new Date()).toLocaleDateString().replace('/\//g','-'));
+    $("#inputDate input").val(datelist.toString());
+    $("#inputDate p").text(isWorkday(datelist)[0].status == '2' ? "工作日" : "休息日");
+})
