@@ -44,7 +44,22 @@ function isWorkday(datelist) {
 
 $(function () {
     var datelist = [];
-    datelist.push((new Date()).toLocaleDateString().replace('/\//g','-'));
+    datelist.push((new Date()).toLocaleDateString().replace(/\//g, '-'));
     $("#inputDate input").val(datelist.toString());
     $("#inputDate p").text(isWorkday(datelist)[0].status == '2' ? "工作日" : "休息日");
-})
+});
+$(document).on('click', '#nextday', function (event) {
+    var date = [];
+    var curDate = $("#inputDate input").val();
+    var d = new Date(curDate.split('-')[0], curDate.split('-')[1] - 1, curDate.split('-')[2]);
+    var nextday = (new Date(d.getTime() + 24 * 60 * 60 * 1000)).toLocaleDateString().replace(/\//g, '-');
+    $("#inputDate input").val(nextday);
+    date.push(nextday);
+    $("#inputDate p").text(isWorkday(date)[0].status == '2' ? "工作日" : "休息日");
+});
+$(document).on('click', '#returntoday', function (event) {
+    var datelist = [];
+    datelist.push((new Date()).toLocaleDateString().replace(/\//g, '-'));
+    $("#inputDate input").val(datelist.toString());
+    $("#inputDate p").text(isWorkday(datelist)[0].status == '2' ? "工作日" : "休息日");
+});
