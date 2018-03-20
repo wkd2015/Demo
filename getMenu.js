@@ -16,6 +16,7 @@ var arr  = [
         ['demos/pages/study/boxsizingTest.html','box-sizing属性demo'],
         ['demos/pages/study/zhezhaoPic.html','图片圆形遮罩及动态效果'],
         ['demos/pages/study/isWorkday/index.html','工作日判断']
+        ['demos/pages/study/simpleDataBind.html', '简单的defineProperty数据绑定']
     ]
 ];
 var list = "";

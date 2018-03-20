@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简单数据绑定</title>
+</head>
+<body>
+<input type="text" id="test">
+<span id="test_span"></span>
+</body>
+<script type="application/javascript">
+    var obj = {};
+    Object.defineProperty(obj, 'test', {
+        set: function (newVal) {
+            document.getElementById('test').value = newVal;
+            document.getElementById('test_span').innerHTML = newVal;
+        }
+    });
+    document.addEventListener('keyup', function (e) {
+        obj.test = e.target.value;
+    });
+</script>
+</html>
