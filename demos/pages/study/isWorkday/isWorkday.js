@@ -15,7 +15,21 @@ function isWorkday(datelist) {
                     date: value,
                     status: '2'
                 };
-                var year = value.split('-')[0];
+                var _date = value;
+                if (data[_date]) {
+                    tempObj = {
+                        date: _date,
+                        status: data[_date]
+                    }
+                } else {
+                    if (isWeekend(+(_date.split('-')[0]),+(_date.split('-')[1]),+(_date.split('-')[2]))){
+                        tempObj = {
+                            date: _date,
+                            status: "1"
+                        }
+                    }
+                }
+                /*var year = value.split('-')[0];
                 if (data.hasOwnProperty(year)) {
                     for (var i = 0; i < data[year].length; i++) {
                         if (data[year][i].date == value && data[year][i].status == '1') {
@@ -31,7 +45,7 @@ function isWorkday(datelist) {
                             }
                         }
                     }
-                }
+                }*/
                 return tempObj;
             });
             // console.log(result);
