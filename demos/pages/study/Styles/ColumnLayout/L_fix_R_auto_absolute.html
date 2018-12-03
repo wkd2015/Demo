@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>position左固右动</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .sideBar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+        }
+
+        .mainContent {
+            margin-left: 220px;
+        }
+
+        .sideBar, .mainContent {
+            border: solid 1px dodgerblue;
+            min-height: 350px;
+        }
+    </style>
+</head>
+<body>
+<div class="sideBar"></div>
+<div class="mainContent"></div>
+</body>
+</html>

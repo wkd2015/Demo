@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Flex Demo</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .box {
+        display: flex;
+    }
+
+    .ele {
+        border: 1px solid black;
+        padding: 10px;
+        margin: 10px;
+    }
+
+    .ele-flex-start {
+        align-items: flex-start;
+    }
+
+    .ele-center {
+        align-items: center;
+    }
+
+    .ele-flex-end {
+        align-items: flex-end;
+    }
+
+    .ele-baseline {
+        align-items: baseline;
+    }
+
+    .ele-stretch {
+        align-items: stretch;
+    }
+
+    strong {
+        color: red;
+    }
+</style>
+
+<body>
+    <div class="box ele-flex-start">
+        <p class="ele">align-items: flex-start;</p>
+        <p class="ele">根据主轴方向
+            <br>(flex-direction)
+            <br>决定所处位置
+        </p>
+        <p class="ele">
+            交叉轴的起点对齐。
+        </p>
+    </div>
+    <div class="box ele-flex-end">
+        <p class="ele">align-items: flex-end;</p>
+        <p class="ele">根据主轴方向
+            <br>(flex-direction)
+            <br>决定所处位置
+        </p>
+        <p class="ele">
+            交叉轴的终点对齐。
+        </p>
+    </div>
+    <div class="box ele-center">
+        <p class="ele">align-items: center;</p>
+        <p class="ele">根据主轴方向
+            <br>(flex-direction)
+            <br>决定所处位置
+        </p>
+
+        <p class="ele">
+            交叉轴的中点对齐。
+        </p>
+    </div>
+    <div class="box ele-baseline">
+        <p class="ele">align-items: baseline;</p>
+        <p class="ele" style="font-size:11px;">根据主轴方向
+            <br>(flex-direction)
+            <br>决定所处位置
+        </p>
+        <p class="ele" style="font-size: 18px">
+            项目的第一行文字的基线对齐。
+        </p>
+    </div>
+
+    <div class="box ele-stretch">
+        <p class="ele">align-items: stretch;</p>
+        <p class="ele" style="font-size:11px;">根据主轴方向
+            <br>(flex-direction)
+            <br>决定所处位置
+        </p>
+        <p class="ele">
+            如果项目未设置高度或设为auto，将占满整个容器的高度。
+        </p>
+    </div>
+</body>
+
+</html>

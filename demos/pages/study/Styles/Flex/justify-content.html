@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Flex Demo</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .box {
+        display: flex;
+    }
+
+    .ele {
+        border: 1px solid black;
+        padding: 10px;
+        margin: 10px;
+    }
+
+    .ele-left {
+        justify-content: flex-start;
+    }
+
+    .ele-center {
+        justify-content: center;
+    }
+
+    .ele-right {
+        justify-content: flex-end;
+    }
+
+    .ele-between {
+        justify-content: space-between;
+    }
+
+    .ele-around {
+        justify-content: space-around;
+    }
+
+    strong {
+        color: red;
+    }
+</style>
+
+<body>
+    <div class="box ele-center">
+        <h3>justify-content属性定义了项目在主轴上的对齐方式。</h3>
+    </div>
+    <div class="box ele-left">
+        <p class="ele">justify-content:start</p>
+        <p class="ele">根据主轴方向(flex-direction)决定所处位置</p>
+    </div>
+    <div class="box ele-right">
+        <p class="ele">justify-content:end</p>
+        <p class="ele">根据主轴方向(flex-direction)决定所处位置</p>
+    </div>
+    <div class="box ele-center">
+        <p class="ele">justify-content:center</p>
+        <p class="ele">根据主轴方向(flex-direction)决定所处位置</p>
+    </div>
+    <div class="box ele-between">
+        <p class="ele">justify-content:space-between</p>
+        <p class="ele">根据主轴方向(flex-direction)决定所处位置</p>
+        <p class="ele">两端对齐，项目之间的间隔都相等。</p>
+    </div>
+    <div class="box ele-around">
+        <p class="ele">justify-content:space-around</p>
+        <p class="ele">根据主轴方向(flex-direction)决定所处位置</p>
+        <p class="ele">每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。</p>
+    </div>
+</body>
+
+</html>

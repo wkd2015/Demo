@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Flex Demo</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .box {
+        display: flex;
+        flex-wrap: wrap-reverse;
+    }
+
+    .ele {
+        border: 1px solid black;
+        padding: 10px;
+        width: 300px;
+    }
+
+    strong {
+        color: red;
+    }
+</style>
+
+<body>
+    <div class="box">
+        <div class="ele">
+            1.默认情况下，项目都排在一条线（又称”轴线”）上。flex-wrap属性定义，如果一条轴线排不下，如何换行。
+        </div>
+        <div class="ele">2.
+            <br> .box{
+            <br> flex-wrap: nowrap | wrap |
+            <strong>wrap-reverse</strong>;
+            <br> }
+        </div>
+        <div class="ele">3. nowrap（默认）：不换行。
+        </div>
+        <div class="ele">
+            4.wrap：换行，第一行在上方。</div>
+        <div class="ele">
+            5.wrap-reverse：换行，第一行在下方。
+        </div>
+    </div>
+</body>
+
+</html>

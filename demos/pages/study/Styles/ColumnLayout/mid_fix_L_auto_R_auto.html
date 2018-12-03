@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>中固定左右自适应</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .leftDiv, .rightDiv, .centerDiv {
+            height: 350px;
+            display: table-cell;
+        }
+
+        .leftDiv {
+            background-color: red;
+            width: 50%;
+        }
+
+        .centerDiv {
+            background-color: dodgerblue;
+            min-width: 100px;
+            width: 100px;
+        }
+
+        .rightDiv {
+            width: 50%;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+<!--难点：浏览器宽度未知-->
+<div class="leftDiv"></div>
+<div class="centerDiv"></div>
+<div class="rightDiv"></div>
+</body>
+</html>

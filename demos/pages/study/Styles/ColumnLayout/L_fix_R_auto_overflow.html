@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>overflow版左固定右自适应</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .sideBar {
+            width: 200px;
+            float: left;
+        }
+
+        .mainContent {
+            overflow: hidden;
+        }
+
+        .sideBar, .mainContent {
+            border: solid 1px dodgerblue;
+            min-height: 350px;
+        }
+    </style>
+</head>
+<body>
+<div class="sideBar"></div>
+<div class="mainContent"></div>
+</body>
+</html>

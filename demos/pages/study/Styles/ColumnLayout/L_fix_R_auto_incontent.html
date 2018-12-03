@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>包含左固右动</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .content,.sideBar{
+            float: left;
+        }
+        .content{
+            margin-left: -220px;
+            width: 100%;
+        }
+        .main{
+            margin-left: 220px;
+        }
+        .sideBar{
+            width: 200px;
+        }
+        .main,.sideBar,.content{
+            border: solid 1px dodgerblue;
+            min-height: 350px;
+        }
+    </style>
+</head>
+<body>
+<div class="sideBar"></div>
+<div class="content">
+    <div class="main"></div>
+</div>
+</body>
+</html>
