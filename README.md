@@ -1,2 +1,2 @@
 ### Demo
-#### 百度前端学院、Freecodecamp等学习任务Demo
+#### 学习练手程序及Blog Demo
